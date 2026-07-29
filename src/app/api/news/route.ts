@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+// Required for Cloudflare Pages Edge Runtime
 export const runtime = 'edge';
 
 // India city coordinate lookup - used to geo-pin GDELT articles
@@ -67,7 +68,6 @@ export async function GET() {
       console.log('Fetching GDELT DOC artlist API...');
       const response = await fetch(gdeltDocUrl, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; INDintel/1.0)' },
-        next: { revalidate: 300 },
         signal: AbortSignal.timeout(12000)
       });
 
