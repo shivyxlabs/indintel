@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+export const runtime = 'edge';
+
 // India city coordinate lookup - used to geo-pin GDELT articles
 const INDIA_CITIES: { keywords: string[]; city: string; lat: number; lon: number }[] = [
   { keywords: ['delhi', 'new delhi', 'ndtv', 'hindustantimes', 'theprint', 'thewire'], city: 'New Delhi', lat: 28.6139, lon: 77.2090 },
